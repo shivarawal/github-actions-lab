@@ -35,6 +35,7 @@ jobs:
 
   system-info:
     name: System Information
+    needs: basic-check
     runs-on: ubuntu-latest
     steps:
       - name: Print system information
