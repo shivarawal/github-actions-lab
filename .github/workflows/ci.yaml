@@ -45,8 +45,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simulate tests
-        if: failure()
         run: exit 1
+      - name: show failure diagnostic
+        if: failure()
+        run: echo "A previous test step failed"
   deploy:
     name: Deploy application
     needs: test
