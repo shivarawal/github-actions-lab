@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simulate tests
-        run: echo "Tests passed successfully"
+        run: exit 1
   deploy:
     name: Deploy application
     needs: test
