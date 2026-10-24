@@ -32,3 +32,10 @@ jobs:
 
       - name: Print success message
         run: echo "Basic check job completed successfully"
+
+  system-info:
+    name: System Information
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print system information
+        run: echo "this is the second job"
