@@ -1,2 +1,3 @@
 Practising GitHub Actions branch filters.
 Testing branch filters in GitHub Actions.
+Testing paths filter on main branch.
