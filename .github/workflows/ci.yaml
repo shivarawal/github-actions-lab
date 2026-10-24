@@ -33,10 +33,23 @@ jobs:
       - name: Print success message
         run: echo "Basic check job completed successfully"
 
-  system-info:
-    name: System Information
-    needs: basic-check
+  build:
+    name: Build the application 
     runs-on: ubuntu-latest
     steps:
-      - name: Print system information
-        run: echo "this is the second job"
+      - name: Simulate build
+        run: echo "build completed successfully"
+  test:
+    name: Test application
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate tests
+        run: echo "Tests passed successfully"
+  deploy:
+    name: Deploy application
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate deployment
+        run: echo "Application deployed successfully"
