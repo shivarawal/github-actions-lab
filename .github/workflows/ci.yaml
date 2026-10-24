@@ -1,11 +1,34 @@
-name: First CI pipeline
+
+name: First CI Pipeline
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
+  basic-check:
+    name: Run Basic Check
     runs-on: ubuntu-latest
+
     steps:
-      - name: Confirm workflow runs
-        run: echo "CI workflow is running"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show runner hostname
+        run: hostname
+
+      - name: Show current directory
+        run: pwd
+
+      - name: Show uptime
+        run: uptime
+
+      - name: Show disk usage
+        run: df -h
+
+      - name: Show memory usage
+        run: free -h
+
+      - name: Print success message
+        run: echo "Basic check job completed successfully"
