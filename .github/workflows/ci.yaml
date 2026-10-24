@@ -48,7 +48,10 @@ jobs:
         run: exit 1
       - name: show failure diagnostic
         if: failure()
-        run: echo "A previous test step failed"
+        run: echo "Test step failed; collecting diagnostics"
+      - name: Always print final report
+        if: always()
+        run: echo "Test job completed with status"
   deploy:
     name: Deploy application
     needs: test
