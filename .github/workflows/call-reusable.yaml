@@ -1,0 +1,6 @@
+name: Call Reusable workflow
+on:
+    workflow_dispatch:
+jobs:
+    call-resuable:
+        uses: ./.github/workflows/reusable-check.yml

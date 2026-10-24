@@ -1,0 +1,9 @@
+name: Reusable Check
+on: 
+  workflow_call:
+jobs:
+  resuable-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print reusable workflow meessage
+        run: echo "Resuable workflow executed successfully"
