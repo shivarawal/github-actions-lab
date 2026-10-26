@@ -67,6 +67,10 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' && runner.os == 'Linux' }}
         run: echo "This workflow is running on main and on Linux"
 
+      - name: check main branch or linux runner
+        if: ${{ github.ref == 'refs/heads/main' || runner.os == 'Linux' }}
+        run: echo "This workflow is running on main or on Linux"
+
   build:
     name: Build the application 
     runs-on: ubuntu-latest
