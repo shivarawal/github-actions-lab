@@ -58,6 +58,14 @@ jobs:
         run: echo "BUILD_MODE=production" >> "$GITHUB_ENV"
       - name: Display build mode
         run: echo "Build mode is $BUILD_MODE"
+      - name: create a custom command 
+        run: |
+          mkdir -p "$HOME/custom-bin"
+          printf '#!/bin/bash\necho "custom command executed successfully"\n' > "$HOME/custom-bin/hello-ci"
+          chmod +x "$HOME/custom-bin/hello-ci"
+          echo "HOME/custom-bin" >> "$GITHUB_PATH"
+      - name: Run custom command
+        run: hello-ci
   test:
     name: Test application
     needs: build
