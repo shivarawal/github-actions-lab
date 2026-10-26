@@ -54,6 +54,10 @@ jobs:
         run: echo "version=${BUILD_VERSION}" >> $GITHUB_OUTPUT
       - name: Display build version
         run: echo "Build version is ${{ steps.version.outputs.version }}"
+      - name: Set build mode
+        run: echo "BUILD_MODE=production" >> "$GITHUB_ENV"
+      - name: Display build mode
+        run: echo "Build mode is $BUILD_MODE"
   test:
     name: Test application
     needs: build
