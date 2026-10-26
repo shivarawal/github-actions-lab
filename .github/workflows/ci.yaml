@@ -47,6 +47,10 @@ jobs:
           echo "Git reference: ${{ github.ref}}"
           echo "Runner OS: ${{ runner.os}}"
 
+      - name: Check main branch
+        if: ${{ github.ref == 'refs/heads/main'}}
+        run: echo "This workflow is running on main"
+
   build:
     name: Build the application 
     runs-on: ubuntu-latest
