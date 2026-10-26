@@ -50,7 +50,7 @@ jobs:
       - name: Check main branch
         if: ${{ github.ref == 'refs/heads/main'}}
         run: echo "This workflow is running on main"
-        
+
       - name: Check feature branch
         if: ${{ github.ref == 'refs/heads/feature-test' }}
         run: echo "This workflow is running on feature-test"
@@ -62,6 +62,10 @@ jobs:
       - name: Check branch using startsWith
         if: ${{ startsWith(github.ref, 'refs/heads/main') }}
         run: echo "the branch refrence starts with main"
+      
+      - name: check main branch and linux runner
+        if: ${{ github.ref == 'refs/heads/main' && runner.os == 'Linux' }}
+        run: echo "This workflow is running on main and on Linux"
 
   build:
     name: Build the application 
