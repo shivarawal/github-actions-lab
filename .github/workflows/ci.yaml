@@ -58,6 +58,9 @@ jobs:
         run: echo "BUILD_MODE=production" >> "$GITHUB_ENV"
       - name: Display build mode
         run: echo "Build mode is $BUILD_MODE"
+      - name: Practice continue-on-error
+        continue-on-error: true
+        run: exit 1 
       - name: create a custom command 
         run: |
           mkdir -p "$HOME/custom-bin"
