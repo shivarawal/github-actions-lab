@@ -47,7 +47,7 @@ jobs:
           echo "Git reference: ${{ github.ref}}"
           echo "Runner OS: ${{ runner.os}}"
 
- build:
+  build:
     name: Build the application 
     runs-on: ubuntu-latest
     timeout-minutes: 1
