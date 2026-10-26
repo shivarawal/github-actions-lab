@@ -70,6 +70,8 @@ jobs:
           echo "$HOME/custom-bin" >> "$GITHUB_PATH"
       - name: Run custom command
         run: hello-ci
+      - name: Test job timeout
+        run: sleep 90 
   test:
     name: Test application
     needs: build
