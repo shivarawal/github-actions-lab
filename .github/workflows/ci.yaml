@@ -47,7 +47,9 @@ jobs:
     steps:
       - name: Generate build version
         id: version
-        run: echo "version=1.2.0" >> "$GITHUB_OUTPUTS"
+        env:
+          BUILD_VERSION: 1.2.0
+        run: echo "version=${BUILD_VERSION}" >> $GITHUB_OUTPUT
       - name: Display build version
         run: echo "Build version is ${{ steps.version.outputs.version }}"
   test:
