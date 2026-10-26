@@ -44,6 +44,7 @@ jobs:
   build:
     name: Build the application 
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     outputs:
       build_version: ${{ steps.version.outputs.version }}
     steps:
