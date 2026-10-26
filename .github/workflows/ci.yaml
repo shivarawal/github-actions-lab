@@ -50,6 +50,9 @@ jobs:
       - name: Check main branch
         if: ${{ github.ref == 'refs/heads/main'}}
         run: echo "This workflow is running on main"
+      - name: Check feature branch
+        if: ${{ github.ref == 'refs/heads/feature-test' }}
+        run: echo "This workflow is running on feature-test"
 
   build:
     name: Build the application 
