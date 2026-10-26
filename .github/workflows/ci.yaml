@@ -45,8 +45,11 @@ jobs:
     name: Build the application 
     runs-on: ubuntu-latest
     steps:
-      - name: Simulate build
-        run: echo "build completed successfully"
+      - name: Generate build version
+        id: version
+        run: echo "version=1.2.0" >> "$GITHUB_OUTPUTS"
+      - name: Display build version
+        run: echo "Build version is ${{ steps.version.outputs.version }}"
   test:
     name: Test application
     needs: build
