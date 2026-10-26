@@ -41,7 +41,13 @@ jobs:
       - name: Print success message
         run: echo "Basic check job completed successfully"
 
-  build:
+      - name: Practice expressions
+        run: |
+          echo "Triggered by: ${{ github.actor}}"
+          echo "Git reference: ${{ github.ref}}"
+          echo "Runner OS: ${{ runner.os}}"
+
+ build:
     name: Build the application 
     runs-on: ubuntu-latest
     timeout-minutes: 1
