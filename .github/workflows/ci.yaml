@@ -86,6 +86,16 @@ jobs:
           echo "Ref: ${{ github.ref }}"
           echo "SHA: ${{ github.sha }}"
 
+      - name: Explore env context
+        env: 
+          APP_NAME: github-actions-lab
+          DEPLOY_ENV: staging
+        run: |
+          echo "App name: $APP_NAME"
+          echo "Deploy environment: $DEPLOY_ENV"
+          echo "App name via expression: ${{ env.APP_NAME }}"
+          echo "Deploy environment via expression: ${{ env.DEPLOY_ENV }}"
+
   build:
     name: Build the application 
     runs-on: ubuntu-latest
