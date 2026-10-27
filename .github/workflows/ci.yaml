@@ -140,6 +140,10 @@ jobs:
       - name: Always print final report
         if: always()
         run: echo "Test job completed with status"
+      - name: Explore needs context
+        run: |
+          echo "BUild job result: ${{ needs.build.result }}"
+          echo "BUild version: ${{ needs.build.outputs.build_version }}"
   deploy:
     name: Deploy application
     needs: test
