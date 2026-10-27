@@ -16,6 +16,8 @@ on:
       - main
   schedule:
     - cron: '*/5 * * * *'
+permissions:
+  contents: read
 jobs:
   basic-check:
     name: Run Basic Check
