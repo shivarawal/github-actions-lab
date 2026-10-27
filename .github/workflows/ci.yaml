@@ -95,7 +95,16 @@ jobs:
           echo "Deploy environment: $DEPLOY_ENV"
           echo "App name via expression: ${{ env.APP_NAME }}"
           echo "Deploy environment via expression: ${{ env.DEPLOY_ENV }}"
-
+      - name:  Check Demo Secret
+        env: 
+          DEMO_TOKEN: ${{ secrets.DEMO_TOKEN }}
+        run: |
+          if [ -n "$DEMO_TOKEN"]; then
+            echo "Demo secret is configured"
+          else 
+            echo "Demo secret is missing"
+            exit 1
+          fi
   build:
     name: Build the application 
     runs-on: ubuntu-latest
