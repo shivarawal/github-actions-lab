@@ -74,6 +74,18 @@ jobs:
       - name: Practice format function 
         run: echo "${{ format('Hello {0}, welcome to {1}!', github.actor, github.ref) }}"
 
+      - name: Explore github context 
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Event name: ${{ github.event_name }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run number: ${{ github.run_number }}"
+          echo "Job ID: ${{ github.job }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "SHA: ${{ github.sha }}"
+
   build:
     name: Build the application 
     runs-on: ubuntu-latest
