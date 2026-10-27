@@ -144,6 +144,10 @@ jobs:
         run: |
           echo "BUild job result: ${{ needs.build.result }}"
           echo "BUild version: ${{ needs.build.outputs.build_version }}"
+
+      - name: Explore vars context
+        run: | 
+          echo "App environment: ${{ vars.APP_ENV }}"
   deploy:
     name: Deploy application
     needs: test
