@@ -71,6 +71,9 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' || runner.os == 'Linux' }}
         run: echo "This workflow is running on main or on Linux"
 
+      - name: Practice format function 
+        run: echo "${{ format('Hello {0}, welcome to {1}!', github.actor, github.ref) }}"
+
   build:
     name: Build the application 
     runs-on: ubuntu-latest
