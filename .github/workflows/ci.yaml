@@ -19,6 +19,26 @@ on:
 permissions:
   contents: read
 jobs:
+  pat-validation:
+    name: Validate Personal Access Token
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Check PAT authentication
+        env:
+          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN}}
+        run: gh api user --jq '.login'
+
+      - name: Validate Personal Access Token
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          if [ -z "$PAT_TOKEN" ]; then
+            echo "Personal Access Token is not set. Please configure it in the repository secrets."
+            exit 1
+          else
+            echo "Personal Access Token is set."
+          fi
   basic-check:
     name: Run Basic Check
     runs-on: ubuntu-latest
