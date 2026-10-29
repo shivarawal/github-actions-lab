@@ -115,7 +115,7 @@ jobs:
       - name:  Test GITHUB_TOKEN authentication
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-        run: gh api "repos/$(GITHUB_REPOSITORY)" --jq '-full_name'
+        run: gh api "repos/$(GITHUB_REPOSITORY)" --jq '.full_name'
   build:
     name: Build the application 
     runs-on: ubuntu-latest
