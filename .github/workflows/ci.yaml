@@ -180,3 +180,13 @@ jobs:
     steps:
       - name: Show operating system
         run: echo "running on ${{ matrix.os}}"
+
+  release-demo:
+    name: Release Permission Demo
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+    steps:
+      - name: Show release permission setup
+        run: echo "This job is configured for repository content write access"
