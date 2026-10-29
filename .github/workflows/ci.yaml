@@ -20,13 +20,13 @@ permissions:
   contents: read
 jobs:
   pat-validation:
-    name: Validate Personal Access Token (failure test)
+    name: Validate Personal Access Token 
     runs-on: ubuntu-latest
     permissions: {}
     steps:
       - name: Check PAT authentication
         env:
-          GH_TOKEN: ${{ secrets.INVALID_PAT_TEST}}
+          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: gh api user --jq '.login'
 
   basic-check:
