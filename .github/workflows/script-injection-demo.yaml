@@ -1,0 +1,20 @@
+
+name: Script Injection Security Demo
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  safe-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Safely print PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "Pull request title:"
+          printf '%s\n' "$PR_TITLE"
