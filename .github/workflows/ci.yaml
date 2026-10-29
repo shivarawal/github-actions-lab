@@ -111,6 +111,11 @@ jobs:
             echo "Demo secret is missing"
             exit 1
           fi
+
+      - name:  Test GITHUB_TOKEN authentication
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        run: gh api repo/$GITHUB_REPOSITORY --jq '-full_name'
   build:
     name: Build the application 
     runs-on: ubuntu-latest
