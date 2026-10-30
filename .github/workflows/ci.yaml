@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Check PAT authentication
         env:
-          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_NEW }}
         run: gh api user --jq '.login'
 
   basic-check:
