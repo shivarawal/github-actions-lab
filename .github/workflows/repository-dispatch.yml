@@ -2,6 +2,7 @@ name: Repository Dispatch Demo
 on:
   repository_dispatch:
     types: [deploy_requested]
+permissions: {}
 
 jobs:
   dispatch-check:
