@@ -18,6 +18,10 @@ on:
     - cron: '*/5 * * * *'
 permissions:
   contents: read
+# cancel older CI runs on the same branch when a new run is triggered
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref}}
+  cancel-in-progress: true 
 jobs:
   pat-validation:
     name: Validate Personal Access Token 
