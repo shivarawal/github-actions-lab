@@ -1,0 +1,25 @@
+name: Environment variables Demo
+on: 
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        environment: [dev,staging,production]
+    environment: ${{ matrix.environment}}
+
+    steps:
+      - name: Display environment configuration
+        run: |
+          echo "Environment: $APP_ENV"
+          echo "Application Port: $APP_PORT"
+          echo "API URL: $API_URL"
+        
+        env:
+          APP_ENV: ${{ vars.APP_ENV }}
+          APP_PORT: ${{ vars.APP_PORT }}
+          API_URL: ${{ vars.API_URL }}
