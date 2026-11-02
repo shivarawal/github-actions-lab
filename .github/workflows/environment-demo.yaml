@@ -8,18 +8,30 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - run: echo "Deploying to DEV"
+      - name: Deploy to DEV
+        run: |
+          echo "Deploying to DEV"
+          sleep 15  
 
   deploy-staging:
     runs-on: ubuntu-latest
     needs: deploy-dev
     environment: staging
     steps:
-      - run: echo "Deploying to STAGING"
+      - name: Deploy to STAGING
+        run: |
+          echo "Deploying to STAGING"
+          sleep 15 
   
   deploy-production:
     runs-on: ubuntu-latest
     needs: deploy-staging
     environment: production
+    concurrency:
+      group: production-deployment
+      cancel-in-progress: false
     steps:
-      - run: echo "Deploying to PRODUCTION"
+      - name: Deploy to PRODUCTION
+        run: |
+          echo "Deploying to PRODUCTION"
+          sleep 30  
