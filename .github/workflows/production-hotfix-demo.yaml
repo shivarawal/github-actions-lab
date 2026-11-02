@@ -1,0 +1,21 @@
+name: Production Hotfix Demo
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hotfix-production:
+    name: Deploy Production Hotfix
+    runs-on: ubuntu-latest
+    environment: production
+
+    concurrency:
+      group: production-deployment
+      cancel-in-progress: false
+
+    steps:
+      - name: Deploy hotfix
+        run: |
+          echo "Starting production hotfix..."
+          sleep 30 
+          echo "production hotfix completed!"
